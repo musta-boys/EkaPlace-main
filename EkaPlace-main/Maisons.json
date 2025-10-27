@@ -1,0 +1,95 @@
+[
+    {
+    "id": 1,
+    "nom": "Maison AMANI",
+    "commune": "Ibanda",
+    "adresse": "Av.Quartier A",
+    "chambres": 4,
+    "usage": "Famille",
+    "prix": "450",
+    "image": "img/maison-1.jpg",
+    "description": "En recherche d une grande maison,dans unlieu propre et sécurisé pour votre famille ?Alors cette maison est faite pour vous !!",
+    "available": true,
+      "tenantName": ""  
+    
+    
+},
+{
+    "id": 2,
+    "nom": "Maison BASAF",
+    "commune": "Kadutu",
+    "adresse": "Avenue de la Montagne n°15",
+    "chambres": 3,
+    "usage": "Famille",
+    "prix": "350",
+    "image": "img/maison-2.jpg",
+    "description": "Très bonne maison localisé dans un lieu propre et sécurisé,Idéale pour nos familles",
+    "available": true,      
+    "tenantName": ""      
+},
+{
+    "id": 3,
+    "nom": "Maison FLEUR DE LYS",
+    "commune": "Bagira",
+    "adresse": "Avenue du Plateau n°5",
+    "chambres": 2,
+    "usage": "Célibataire",
+    "prix": "200",
+    "image": "img/maison-3.jpg",
+    "description": "Si vous célibataire,alors cette maison est faite pour vous.Localisé en un lieu calme et sécurisée,loins des familiales pour plus d intimité",
+    "available": true,      
+    "tenantName": ""      
+},
+{
+    "id": 4,
+    "nom": "Maison LA CASA",
+    "commune": "Ibanda",
+    "adresse": "Avenue LABOTTE n°65",
+    "chambres": 1,
+    "usage": "Célibataire",
+    "prix": "150",
+    "image": "img/maison-4.jpg",
+    "description": "Localisé en centre ville,cette maison est faite pour les personnes voulant vivre seul,mais dans un lieu urbanisé",
+    "available": true,      
+    "tenantName": ""      
+},
+{
+    "id": 5,
+    "nom": "Maison du Lac",
+    "commune": "Ibanda",
+    "adresse": "Avenue du lac n°2",
+    "chambres": 5,
+    "usage": "Famille",
+    "prix": "600",
+    "image": "img/maison-5.jpg",
+    "description": "Vue imprenable sur le lac, idéale pour une grande famille cherchant le confort et la tranquillité.",
+    "available": true,      
+    "tenantName": ""      
+},
+{
+    "id": 6,
+    "nom": "Appartement Moderne",
+    "commune": "Kadutu",
+    "adresse": "Avenue LAGROTTE n°65",
+    "chambres": 2,
+    "usage": "Nouveau-marie",
+    "prix": "300",
+    "image": "img/maison-6.jpg",
+    "description": "Appartement cosy et moderne, parfait pour un jeune couple, proche de toutes commodités.",
+    "available": true,      
+    "tenantName": ""      
+},
+{
+    "id": 7,
+    "nom": "Villa Tropicale",
+    "commune": "Bagira",
+    "adresse": "Quartier B n°45",
+    "chambres": 3,
+    "usage": "Famille",
+    "prix": "400",
+    "image": "img/maison-7.jpg",
+    "description": "Spacieuse villa avec jardin, située dans un quartier calme et verdoyant, idéale pour la vie de famille.",
+    "available": true,      
+    "tenantName": ""      
+}
+]

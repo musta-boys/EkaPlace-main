@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EkaPlace - Maison trouvée, soucis envolés</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Eka<span>Place</span></a>
+            <!-- AJOUTS HTML POUR BURGER -->
+
+            <div class="burger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+             <!-- FIN AJOUTS -->
+
+            <!-- AJOUTS HTML POUR THEME -->
+             <i class="fas fa-sun" id="levier_theme"> </i>
+
+            <ul>
+                <li><a href="#Recherches">Rechercher</a></li>
+                <li><a href="#gallery">Nos maisons</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="maison" class="hero">
+            <div class="hero-content">
+                <h1>EkaPlace</h1>
+                <p class="slogan"><strong> "Maison trouvée, soucis envolés <br>Bienvenu à Bukavu !"</strong></p>
+                <p class="Message">Votre satisfaction est notre priorité.</p>
+                <a href="#Recherches" class="cta-button">Commencer la recherche</a>
+            </div>
+        </section>
+
+        
+        <section id="Recherches">
+            <h2><strong>Vivez dans les conditions que vous souhaitez !!!</strong></h2>
+            <form id="Recherches-form">
+                <div class="form-group">
+                    <label for="commune">Commune</label>
+                    <select id="commune" name="commune">
+                        <option value="toutes">Toutes les communes</option>
+                        <option value="Kadutu">Kadutu</option>
+                        <option value="Ibanda">Ibanda</option>
+                        <option value="Bagira">Bagira</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="chambres">Nombre de chambres</label>
+                    <select id="chambres" name="chambres">
+                        <option value="0">Les chambres</option>
+                        <option value="1">1 chambre</option>
+                        <option value="2">2 chambres</option>
+                        <option value="3">3 chambres</option>
+                        <option value="4">4 chambres</option>
+                        <option value="5">5 chambres</option>
+                        <option value="6">6+ chambres</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usage">Type d'occupation</label>
+                    <select id="usage" name="usage">
+                        <option value="tous">Tous les usages</option>
+                        <option value="Célibataire">Célibataire</option>
+                        <option value="Nouveau-marie">Nouveau marié</option>
+                        <option value="Famille">Famille</option>
+                        <option value="Passage">Maison de passage</option>
+                        <option value="Business">Usage business</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Membres">Nombre de membres de la famille</label>
+                    <select id="Membres" name="Membres">
+                        <option value="0">Les membres de la famille </option>
+                        <option value="1">Entre trois et cinq membres </option>
+                        <option value="2">Entre cinq et dix membres</option>
+                        <option value="3">Entre dix et quinze membres</option>
+                        <option value="4">Entre quinze et vingt membres</option>
+                        <option value="5">Plus de 20 membres</option>  
+                    </select>
+                </div>
+                
+                <div class="form-group" id="famille-size-group" style="display: none;">
+                    <label for="famille-size">Membres de la famille</label>
+                    <input type="number" id="famille-size" name="famille-size" min="2" placeholder="Ex: 4">
+                </div>
+                <button type="submit" class="search-button">Trouver une maison</button>
+            </form>
+        </section>
+
+        
+<section id="gallery">
+    <h2>Explorez les maisons disponibles par commune</h2>
+    <div id="maisons-gallery" class="gallery-container">
+        
+        <!-- cette partie est traité par javascript et json -->
+        
+
+    </div>
+</section>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-content">
+                <h2>Notre Mission</h2>
+                <p>EkaPlace est né d'une consultation des cinq étudiants du BAC0 de la faculté de Sciences Informatiques de l'Université Catholique de Bukavu dont Micheline NTALE KAHELEZO, Harmony NANKAFU SADIKI, Marcellin MURHULA RUTAKANGWA, MUPENGE MALKIYA  Medi et MULIMBI MUNGUOBIGABA Gabriel, dans le cadre du projet tutoré, realisé pour clore la première année universitaire.
+                    
+                </p>
+                <br>
+                <p> Après avoir analysé à quel point la population de Bukavu, ville située dans la province du Sud-Kivu à l'Est de  la RDC, et ses visiteurs souhaitant avoir une maison de location trouvent difficulté à l'avoir. 
+                    Pour pallier à celà, ils ont proposé la création d'une plateforme web qui met en relation les propriétaires de maisons à louer et les locataires potentiels, pour remedier à ce qui cadre avec la difficulté de trouver les maisons ainsi que le manque de satisfation aux locataires voulant trouver une maison selon leurs choix, leurs modes de 
+                    vie ainsi que leurs moyens. 
+                </p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contactez-nous</h2>
+            <div class="contact-container">
+                <form id="contact-form" method="POST" action="projet.php" novalidate>
+                    <div class="form-control">
+                        <input type="text" id="name" name="name" 
+                        placeholder="Votre nom" required>
+                        <small>Message d'erreur</small>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" id="mail" name="mail" 
+                        placeholder="Votre email" required>
+                        <small>Message d'erreur</small>
+                    </div>
+                    <div class="form-control">
+                        <textarea id="message" name="message" rows="5" 
+                        placeholder="Votre message" required></textarea>
+                        <small>Message d'erreur</small>
+                    </div>
+                    <button type="submit">Envoyer</button>
+
+                </form>
+                    <div id="form-status"></div>
+
+                <div class="social-links">
+                    <p>Ou contactez-nous directement via :</p>
+                    <a href="https://wa.me/243859414897" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://facebook.com/ekaplace" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="tel:+243974048298">
+                        <i class="fas fa-phone"></i> Appel Direct</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 EkaPlace. Tous droits réservés.</p>
+    </footer>
+  <!-- partie pour le formulaire de reservation boîte de dialogue -->
+    <div id="reservation-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2>Réserver une maison</h2>
+            <form id="reservation-form" method="POST" action="projet.php">
+                <input type="hidden" id="maison-id" name="maison_id">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" required>
+                </div>
+                <button type="submit" class="search-button">Envoyer la réservation</button>
+                <button type="button" class="cancel-button" id="cancel-reservation">Annuler</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
