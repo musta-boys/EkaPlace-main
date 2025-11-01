@@ -210,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt->execute()) {
                  // Nous ne faisons plus de 'header' dans un contexte AJAX
-                 header('location: houses.php');
+                 header('location: houses.html');
             } else {
                 echo "ERREUR: Problème lors de l'enregistrement de l'annonce : " . $stmt->error;
             }
