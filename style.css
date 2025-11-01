@@ -1,818 +1,592 @@
-
+/* -- DÉFINITION DES VARIABLES -- */
 :root {
-    --primary-color: #5D4037; 
-    --secondary-color: #A1887F; 
-    --accent-color: #81C784;
-        --bg-color: #F5F5F5; /* No changes needed */
-    --text-color: #333;
-    --font-primary: 'Poppins', sans-serif;
-    --font-secondary: 'Lato', sans-serif;
+  --primary-color: #503229;
+  --secondary-color: #000000;
+  --accent-color: #81c784;
+  --bg-color: #000000;
+  --text-color: #333;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Lato", sans-serif;
 }
 
-/* -- AJOUTS CSS POUR THEME -- */
-
-body.dark-theme {
-    --primary-color: #A1887F;   
-    --secondary-color: #4E342E; 
-        --bg-color: #121212; /* No changes needed */
-    --text-color: #E0E0E0;     
-    --card-bg: #1E1E1E;        
-}
-
-#levier_theme {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--primary-color);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-#levier_theme:hover {
-    transform: scale(1.2) rotate(15deg);
-    color: var(--accent-color);
-}
-
-body, .maison-card-v2, #Recherches-form, #contact-form input, #contact-form textarea, header {
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-
-body.dark-theme #Recherches-form {
-    background: var(--card-bg); 
-}
-
-body.dark-theme header {
-    background-color: var(--card-bg);
-}
-
-
-/* -- FIN AJOUTS -- */
-
+/* --- GÉNÉRAL --- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+  font-family: var(--font-primary);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* Transition pour l'effet de thème sombre */
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-primary);
-    font-family: 'Times New Roman', Times, serif;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+/* -- THEME SOMBRE -- */
+body.dark-theme {
+  --primary-color: #a1887f;
+  --secondary-color: #4e342e;
+  --accent-color: #81c784;
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
 }
 
-section {
-    padding: 60px 20px;
-    text-align: center;
+#levier_theme {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+#levier_theme:hover {
+  transform: scale(1.2) rotate(15deg);
+  color: var(--accent-color);
+}
 
+/* --- HEADER / NAVIGATION --- */
 header {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
 }
 
-nav .logo {
-    font-family: var(--font-primary);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
+.logo {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-nav .logo span {
-    color: var(--accent-color);
+.logo span {
+  color: var(--accent-color);
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+  list-style: none;
+  display: flex;
 }
 
-nav ul a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    transition: color 0.3s ease;
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 10px 15px;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
-nav ul a:hover {
-    color: var(--accent-color);
+nav ul li a:hover {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
-.hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?house,modern');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    border-radius: 14px;
+/* --- BURGER MENU --- */
+.burger {
+  display: none;
+  cursor: pointer;
 }
 
-.hero-content {
-    max-width: 500px;
-    border-radius: 14px;
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-color);
+  transition: all 0.3s ease-in-out;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    color: white;
-    font-weight: 700;
+/* --- SECTIONS GÉNÉRALES --- */
+section {
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.hero .slogan {
-    font-size: 1.5rem;
-    font-family: var(--font-secondary);
-    margin-bottom: 1.5rem;
-    color: #f0f0f0;
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
 }
 
-.hero .Message {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+body.dark-theme section h2 {
+  color: var(--accent-color);
 }
 
-.cta-button {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #66BB6A; 
-}
-
-
+/* --- SECTION RECHERCHES --- */
 #Recherches {
-    background-color: #ffffff;
-    font-family: 'Times New Roman', Times, serif;
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+#Recherches h2 {
+  color: white;
 }
 
 #Recherches-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background: var(--bg-color);
-    border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-width: 200px;
-    font-family: 'Times New Roman', Times, serif;
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.form-group label {
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.form-group select, 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: 'Times New Roman', Times, serif;
+.input-group input {
+  flex-grow: 1;
+  min-width: 150px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
 }
 
 .search-button {
-    align-self: flex-end;
-    padding: 12px 30px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .search-button:hover {
-    background-color: #4E342E;
+  background-color: #66bb6a;
 }
 
-
-#gallery {
-    padding-top: 60px;
-    padding-bottom: 80px;
-}
-
-#gallery h2 {
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-}
-
+/* --- SECTION GALERIE MAISONS --- */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
-
 
 .maison-card-v2 {
-    position: relative; 
-    height: 450px;
-    border-radius: 12px;
-    overflow: hidden; 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme .maison-card-v2 {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
 }
 
 .maison-card-v2:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
 
 .maison-card-v2 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.maison-card-v2:hover img {
-    transform: scale(1.1); 
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(29, 21, 18, 0.9) 0%, rgba(29, 21, 18, 0) 60%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; 
-    padding: 25px;
-    color: white;
-    opacity: 0; 
-    transition: opacity 0.5s ease;
-    font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.maison-card-v2:hover 
-.card-overlay {
-    opacity: 1; 
+.maison-card-v2:hover .card-overlay {
+  opacity: 1;
 }
 
-
-.overlay-content h3, 
-.overlay-content p, 
-
-/*--AJOUTS POUR PETITE PARTIE DESCRIPTION--*/
-.overlay-content .description {
-    font-size: 0.95rem; /* Ajustez la taille de la police si nécessaire */
-    margin-bottom: 10px; /* Espace en dessous de la description */
-    color: #e0e0e0; /* Couleur légèrement différente pour la description */
-    line-height: 1.4;
-    max-height: 70px; /* Limite la hauteur pour éviter un texte trop long */
-    overflow: hidden; /* Cache le texte qui dépasse */
-    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est coupé */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limite à 3 lignes */
-    -webkit-box-orient: vertical;
-    opacity: 0; /* Initialement caché, comme les autres éléments de l'overlay */
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* Ajoutez une transition pour la description lorsqu'on survole la carte */
-.maison-card-v2:hover .overlay-content .description {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.25s; /* Ajustez le délai pour qu'il apparaisse après le titre */
-}
-
-/* Ajustez le délai des autres éléments si vous le souhaitez */
-.maison-card-v2:hover .overlay-content h3 {
-    transition-delay: 0.15s;
-}
-.maison-card-v2:hover .overlay-content p.location { /* Cibler spécifiquement les paragraphes de localisation/prix */
-    transition-delay: 0.35s;
-}
-.maison-card-v2:hover .overlay-content p.price {
-    transition-delay: 0.4s;
-}
-.maison-card-v2:hover .overlay-content .details-btn {
-    transition-delay: 0.45s;
-}
-
-/* Si vous avez une limite de hauteur pour l'overlay-content, assurez-vous qu'elle est suffisante */
 .overlay-content {
-    /* ... vos styles existants ... */
-    /* Assurez-vous que l'espace est suffisant pour la description */
+  color: white;
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
 }
 
-/*---FIN AJOUTS---*/
-
-
-.overlay-content 
-.details-btn {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+.maison-card-v2:hover .overlay-content {
+  transform: translateY(0);
 }
-
-.maison-card-v2:hover 
-.overlay-content h3 {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
-}
-
-.maison-card-v2:hover 
-.overlay-content p {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.3s;
-}
-
-.maison-card-v2:hover .overlay-content .details-btn {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.4s;
-}
-
 
 .overlay-content h3 {
-    font-family: var(--font-primary);
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .overlay-content p {
-    font-family: var(--font-secondary);
-    font-size: 1rem;
-    margin-bottom: 15px;
-    font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
 }
 
-.overlay-content i {
-    margin-right: 10px;
-    color: var(--accent-color);
-    font-family: 'Times New Roman', Times, serif;
+.overlay-content .price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 15px;
 }
 
+.overlay-content .cta-button,
 .details-btn {
-    display: inline-block;
-    align-self: flex-start; 
-    background-color: white;
-    color: var(--primary-color);
-    padding: 10px 22px;
-    border-radius: 50px; 
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  border: none; /* Ajouté pour les boutons */
 }
 
-.details-btn:hover {
-    background-color: var(--accent-color);
-    color: white;
+.overlay-content .cta-button {
+  background-color: var(--accent-color);
+  color: white;
 }
 
-
-/* --- AJOUTS CSS POUR BURGER --- */
-
-.burger {
-    display: none; 
-    cursor: pointer;
+.overlay-content .cta-button:hover {
+  background-color: #66bb6a;
 }
 
-.burger .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--primary-color);
-    transition: all 0.3s ease-in-out;
+.overlay-content .details-btn {
+  background-color: var(--primary-color);
+  color: white;
 }
 
-
-
-@media (max-width: 768px) {
-    nav ul {
-       
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 70px; 
-        right: -100%; 
-        width: 100%;
-        height: calc(100vh - 70px); 
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(5px); 
-        gap: 40px;
-        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-        z-index: 999; 
-    }
-
-    
-    nav ul.nav-active {
-        right: 0; 
-    }
-
-    .burger {
-        display: block; 
-    }
-
-   
-    .burger.toggle .bar:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    .burger.toggle .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .burger.toggle .bar:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-    
-   
-}
-    
-/* --- FIN AJOUTS CSS --- */
-
-@media (max-width: 768px) {
-
-    #gallery h2 {
-        font-size: 2rem; 
-    }
-
-    .gallery-container {
-        gap: 2rem;
-        padding: 0 10px; 
-    }
-
-    .maison-card-v2 {
-        height: 400px; 
-    }
-
-    
-    .maison-card-v2 .card-overlay {
-        opacity: 1; 
-        background: linear-gradient(to top, rgba(29, 21, 18, 0.95) 0%, rgba(29, 21, 18, 0.1) 80%);
-    }
-
-    
-    .maison-card-v2 .overlay-content h3,
-    .maison-card-v2 .overlay-content p,
-    .maison-card-v2 .overlay-content .details-btn {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    
-    .maison-card-v2:hover {
-        transform: none;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* On garde l'ombre de base */
-    }
-
-    .maison-card-v2:hover img {
-        transform: none;
-    }
-    
-    .overlay-content h3 {
-        font-size: 1.6rem; 
-    }
-
-    .overlay-content p {
-        font-size: 0.9rem;
-    }
+.overlay-content .details-btn:hover {
+  background-color: #7d5a50;
 }
 
-
-@media (max-width: 480px) {
-
-    #gallery {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    
-    .gallery-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .maison-card-v2 {
-        height: 350px; 
-    }
-
-    .overlay-content h3 {
-        font-size: 1.4rem; 
-    }
-
-    .details-btn {
-        padding: 8px 18px; 
-        font-size: 0.9rem;
-    }
+/* STATUT DE RÉSERVATION */
+.status {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: normal;
 }
 
+.status-available {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.status-reserved {
+  background-color: #e74c3c; /* Rouge pour réservé */
+  color: white;
+}
+
+/* --- SECTION PROPRIÉTAIRE (owner-section) --- */
+#owner-section {
+  background-color: var(--bg-color);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#owner-house-form {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+body.dark-theme #owner-house-form {
+  background: var(--card-bg);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+#owner-house-form h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 5px;
+}
+
+#owner-house-form .form-control label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+#owner-house-form input,
+#owner-house-form select,
+#owner-house-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  background: #f9f9f9;
+  color: #333;
+}
+
+body.dark-theme #owner-house-form input,
+body.dark-theme #owner-house-form select,
+body.dark-theme #owner-house-form textarea {
+  background: #222;
+  color: var(--text-color);
+  border-color: #444;
+}
+
+#owner-house-form textarea {
+  resize: vertical;
+}
+
+#owner-form-status {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#owner-form-status.success {
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+#owner-form-status.error {
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+/* --- SECTION CONTACT / ABOUT --- */
+#contact,
 #about {
-    background-color: var(--secondary-color);
-    color: white;
-}
-#about h2 {
-    color: white;
-}
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
+  background-color: #fff;
 }
 
-#contact-form {
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+body.dark-theme #contact,
+body.dark-theme #about {
+  background-color: var(--card-bg);
 }
 
-#contact-form input, #contact-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: var(--font-secondary);
-    font-family: 'Times New Roman', Times, serif;
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
 }
-
-#contact-form button {
-    padding: 12px 20px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-#contact-form button:hover {
-    background-color: #66BB6A;
-}
-
-.social-links a {
-    display: inline-block;
-    margin: 0 15px;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    transition: all 0.3s;
-}
-
-.social-links a:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.social-links a i {
-    margin-right: 8px;
-}
-
-
-footer {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-
-@media (max-width: 768px) {
-    nav ul {
-        
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .hero .slogan {
-        font-size: 1.2rem;
-    }
-    #search-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .search-button {
-        align-self: auto;
-    }
-}
- 
-
-/* --- A.C.POUR VALIDATION --- */
 
 .form-control {
-    position: relative;
-    margin-bottom: 10px;
+  margin-bottom: 15px;
+  position: relative;
 }
 
+.form-control label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-control input,
+.form-control textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  background: #f9f9f9;
+}
+
+/* Styles de validation (Erreur/Succès) */
 .form-control small {
-    color: #e74c3c; 
-    position: absolute;
-    bottom: -18px; 
-    left: 5px;
-    visibility: hidden; 
-}
-
-
-.form-control.error small {
-    visibility: visible;
+  color: #e74c3c;
+  font-size: 0.8rem;
+  visibility: hidden;
+  height: 0;
+  display: block;
 }
 
 .form-control.error input,
-.form-control.error textarea {
-    border-color: #e74c3c; 
+.form-control.error textarea,
+.form-control.error select {
+  border-color: #e74c3c;
+}
+
+.form-control.error small {
+  visibility: visible;
+  height: auto;
 }
 
 .form-control.success input,
-.form-control.success textarea {
-    border-color: #2ecc71; 
-}
-#form-status {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
+.form-control.success textarea,
+.form-control.success select {
+  border-color: #2ecc71;
 }
 
-#form-status.success {
-    color: #2ecc71; 
+/* --- FOOTER --- */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
 }
- /* --- F.A --- */
 
-/* --- parite ajoutée par M --- */
-/* --- MODAL RESERVATION --- */
+/* --- MODAL (RéSERVATION) --- */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    transition: opacity 0.3s;
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    background: #fff;
-    padding: 32px 28px 24px 28px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    max-width: 400px;
-    width: 100%;
-    position: relative;
-    font-family: var(--font-primary);
-    animation: modalIn 0.35s cubic-bezier(0.77,0,0.175,1);
-}
-
-@keyframes modalIn {
-    from { transform: scale(0.85) translateY(40px); opacity: 0; }
-    to { transform: scale(1) translateY(0); opacity: 1; }
+  background-color: var(--bg-color);
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
 .close-modal {
-    position: absolute;
-    top: 16px;
-    right: 18px;
-    font-size: 2rem;
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: color 0.2s;
-    z-index: 10;
+  color: var(--primary-color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
-.close-modal:hover {
-    color: var(--accent-color);
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #reservation-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-#reservation-form .form-group {
-    min-width: unset;
-    width: 100%;
-}
-
-#reservation-form label {
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--primary-color);
+#reservation-form .form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: var(--text-color);
 }
 
 #reservation-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+}
+
+#reservation-form .cancel-button {
+  background: #ccc;
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+#reservation-form .cancel-button:hover {
+  background: #bbb;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: fixed;
+    right: -100%;
+    top: 60px;
+    background-color: var(--bg-color);
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: var(--font-secondary);
-    background: #f9f9f9;
-    transition: border-color 0.2s;
-}
+    text-align: center;
+    transition: right 0.3s ease-in;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
 
-#reservation-form input:focus {
-    border-color: var(--accent-color);
-    outline: none;
-}
+  nav ul.nav-active {
+    right: 0;
+  }
 
-#reservation-form .search-button {
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background 0.2s;
-}
-#reservation-form .search-button:hover {
-    background: #66BB6A;
-}
+  nav ul li {
+    margin: 10px 0;
+  }
 
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 18px 8px 16px 8px;
-        max-width: 95vw;
-    }
-}
+  .burger {
+    display: block;
+    z-index: 1010;
+  }
 
-body.dark-theme .modal-content {
-    background: var(--card-bg);
-    color: var(--text-color);
+  .burger.toggle .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.toggle .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .burger.toggle .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  #levier_theme {
+    margin-right: 20px;
+  }
 }
-body.dark-theme #reservation-form label {
-    color: var(--accent-color);
-}
-body.dark-theme #reservation-form input {
-    background: #222;
-    color: var(--text-color);
-    border-color: #444;
-}
-body.dark-theme .close-modal {
-    color: var(--accent-color);
-}
-/* --- FIN MODAL RESERVATION --- */

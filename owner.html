@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EkaPlace - Proposer sa Maison</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">Eka<span>Place</span></a>
+
+        <div class="burger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <i class="fas fa-sun" id="levier_theme"> </i>
+
+        <ul>
+          <li><a href="houses.html#Recherches">Rechercher</a></li>
+          <li><a href="houses.php#gallery">Nos maisons</a></li>
+          <li><a href="owner.html">Proposer sa maison</a></li>
+          <li><a href="index.html#about">À Propos</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="owner-section" class="owner-form-section">
+      <h2>Proposez votre maison à la location ou à la vente</h2>
+      <p>
+        Vous êtes propriétaire ? Remplissez ce formulaire et notre équipe vous
+        contactera pour valider votre annonce.
+      </p>
+
+      <form
+        id="owner-house-form"
+        method="POST"
+        action="projet.php"
+        enctype="multipart/form-data"
+        novalidate
+      >
+        <h3>Vos Coordonnées</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            id="owner_name"
+            name="owner_name"
+            placeholder="Votre Nom Complet"
+            required
+          />
+          <small>Erreur</small>
+        </div>
+        <div class="form-control">
+          <input
+            type="email"
+            id="owner_email"
+            name="owner_email"
+            placeholder="Votre Email"
+            required
+          />
+          <small>Erreur</small>
+        </div>
+
+        <h3>Détails de la Maison</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            id="maison_nom_annonce"
+            name="maison_nom_annonce"
+            placeholder="Nom de la maison (Ex: Villa Harmony)"
+            required
+          />
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <label for="commune_annonce">Commune</label>
+          <select id="commune_annonce" name="commune_annonce" required>
+            <option value="">Sélectionner une commune</option>
+            <option value="Kadutu">Kadutu</option>
+            <option value="Ibanda">Ibanda</option>
+            <option value="Bagira">Bagira</option>
+          </select>
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <input
+            type="text"
+            id="adresse_annonce"
+            name="adresse_annonce"
+            placeholder="Adresse Complète"
+            required
+          />
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <label for="chambres_annonce">Nombre de chambres</label>
+          <input
+            type="number"
+            id="chambres_annonce"
+            name="chambres_annonce"
+            min="1"
+            placeholder="Ex: 3"
+            required
+          />
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <label for="usage_annonce">Usage prévu</label>
+          <select id="usage_annonce" name="usage_annonce" required>
+            <option value="">Sélectionner l'usage</option>
+            <option value="Célibataire">Célibataire</option>
+            <option value="Nouveau-marie">Nouveau marié</option>
+            <option value="Famille">Famille</option>
+            <option value="Passage">Maison de passage</option>
+            <option value="Business">Usage business</option>
+          </select>
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <label for="prix_annonce">Prix Mensuel (en $)</label>
+          <input
+            type="number"
+            id="prix_annonce"
+            name="prix_annonce"
+            step="0.01"
+            min="10"
+            placeholder="Ex: 350.00"
+            required
+          />
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <label for="image_annonce">Inserer une image</label>
+          <input type="file" id="image_annonce" name="image_annonce" required />
+          <small>Erreur</small>
+        </div>
+
+        <div class="form-control">
+          <textarea
+            id="description_annonce"
+            name="description_annonce"
+            rows="5"
+            placeholder="Description détaillée de la maison et ses atouts."
+            required
+          ></textarea>
+          <small>Erreur</small>
+        </div>
+
+        <button
+          type="submit"
+          class="cta-button"
+          style="
+            padding: 10px;
+            background-color: #81c784;
+            border: none;
+            border-radius: 7px;
+          "
+        >
+          Soumettre mon annonce
+        </button>
+      </form>
+      <div id="owner-form-status"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 EkaPlace. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

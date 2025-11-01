@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EkaPlace - Nos Maisons et Recherches</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">Eka<span>Place</span></a>
+
+        <div class="burger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <i class="fas fa-sun" id="levier_theme"> </i>
+
+        <ul>
+          <li><a href="#Recherches">Rechercher</a></li>
+          <li><a href="houses.php#gallery">Nos maisons</a></li>
+          <li><a href="owner.html">Proposer sa maison</a></li>
+          <li><a href="index.html#about">À Propos</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="Recherches">
+      <h2>Trouver votre chez-vous</h2>
+      <form id="Recherches-form">
+        <div class="input-group">
+          <input type="text" id="commune" placeholder="Commune" />
+          <input
+            type="text"
+            id="type-usage"
+            placeholder="Type d'usage (Ex: Famille)"
+          />
+          <input
+            type="number"
+            id="chambres"
+            min="1"
+            placeholder="Nb chambres"
+          />
+          <input
+            type="number"
+            id="prix-max"
+            min="10"
+            placeholder="Prix max ($)"
+          />
+          <button type="submit" class="search-button">Rechercher</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="gallery">
+      <h2>Maisons disponibles</h2>
+      <div id="maisons-gallery" class="gallery-container"></div>
+    </section>
+    <footer>
+      <p>&copy; 2024 EkaPlace. Tous droits réservés.</p>
+    </footer>
+
+    <div id="reservation-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal">&times;</span>
+        <h2>Réserver une maison</h2>
+        <form id="reservation-form" method="POST" action="projet.php">
+          <input type="hidden" id="maison-id" name="maison_id" />
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required />
+          </div>
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="telephone">Numéro de téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required />
+          </div>
+          <button
+            type="submit"
+            class="search-button"
+            style="
+              padding: 10px;
+              background-color: #81c784;
+              border: none;
+              border-radius: 7px;
+            "
+          >
+            Envoyer la réservation
+          </button>
+          <button
+            type="button"
+            class="cancel-button"
+            id="cancel-reservation"
+            style="
+              padding: 10px;
+              background-color: #81c784;
+              border: none;
+              border-radius: 7px;
+            "
+          >
+            Annuler
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
