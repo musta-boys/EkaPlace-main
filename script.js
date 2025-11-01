@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // CHARGEUR DE MAISONS : Appelle fetch_maisons.php pour obtenir les données fusionnées (JSON + DB)
   async function chargerMaisons() {
     try {
-      const response = await fetch("fetch_maisons.php"); // Cible le script de fusion
+      const response = await fetch("fetch_maisons.html"); // Cible le script de fusion
       if (!response.ok) {
         throw new Error("Erreur HTTP: " + response.status);
       }
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ownerAnnouncementForm.reset();
 
             // Redirection après succès, comme vous l'aviez demandé précédemment
-            window.location.href = "houses.php";
+            window.location.href = "houses.html";
           } else {
             alert("Erreur lors de l'envoi de l'annonce : " + data);
           }
